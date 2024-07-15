@@ -114,9 +114,10 @@ function scorerPrompt() {
    console.log( `1 is ${scoringAlgorithms[1].name} and it's description is ${scoringAlgorithms[1].description}`);
    console.log( `2 is ${scoringAlgorithms[2].name} and it's description is ${scoringAlgorithms[2].description}`);
    let selection = -1;
-   while(selection<0 || selection>2){
-      selection = input.question("Please select between 0, 1, or 2. ");
-      if (selection<0 || selection>2)
+   let choice = [0,1,2];
+   while(choice.indexOf(selection)===-1){
+      selection = Number(input.question("Please select between 0, 1, or 2. "));
+      if (choice.indexOf(selection)===-1)
          console.log("Please choose 0, 1, or 2.");
    }
    return scoringAlgorithms[selection];
